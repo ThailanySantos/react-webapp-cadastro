@@ -1,0 +1,14 @@
+.home-page {
+  text-align: center;
+  padding: 20px;
+}
+
+.home-page header {
+  background-color: hsl(0, 0%, 100%);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.home-page h1 {
+  margin: 0;
+}
