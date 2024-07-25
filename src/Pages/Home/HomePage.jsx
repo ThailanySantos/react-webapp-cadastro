@@ -1,11 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../Components/Footer/Footer";
+import Header from "../../Components/Header/Header";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
+  const handleRegisterClick = () => {
+    navigate("/register");
+  };
+
   return (
     <Paper elevation={3} style={{ padding: "0.01px" }}>
       <div className="home-page">
@@ -18,7 +25,11 @@ const HomePage = () => {
               básica, onde boas práticas de desenvolvimento e conhecimento estão
               sendo avaliados.
             </p>
-            <Button id="buttonHome" variant="contained">
+            <Button
+              id="buttonHome"
+              variant="contained"
+              onClick={handleRegisterClick}
+            >
               Cadastrar
             </Button>
           </div>
