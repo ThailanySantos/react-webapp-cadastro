@@ -1,14 +1,71 @@
 .home-page {
   text-align: center;
-  padding: 20px;
+  padding: 0.5%;
 }
 
-.home-page header {
-  background-color: hsl(0, 0%, 100%);
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.home-page h1 {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #edeff5;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#buttonHome {
+  background: linear-gradient(55deg, #30a19e, #5bc5d3);
+  color: #ecf5ff;
+  border: none;
+  padding: 1.5%;
+  border-radius: 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 3%;
+}
+
+#buttonHome:hover{
+  color: #fff;
+}
+
+.main {
+  flex: 1;
+  background-color: #fff;
+  padding: 40px 0;
+}
+
+.main h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.main p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .main p {
+    font-size: 16px;
+  }
+
+  .main h2 {
+    font-size: 24px;
+  }
+}
+

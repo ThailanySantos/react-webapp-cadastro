@@ -1,0 +1,22 @@
+.footer {
+    background: linear-gradient(45deg, #113981, #1e9eae);
+    color: #fff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 15px;
+  }
+ 
