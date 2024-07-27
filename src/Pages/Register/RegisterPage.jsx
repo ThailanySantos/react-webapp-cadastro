@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,25 @@ const RegisterPage = () => {
     uf: "",
   });
   const [submittedData, setSubmittedData] = useState(null);
+
+  const handleCepBlur = async () => {
+    if (formData.cep.length === 8) {
+      try {
+        const response = await axios.get(
+          `https://viacep.com.br/ws/${formData.cep}/json/`
+        );
+        const { logradouro, bairro, localidade, uf } = response.data;
+        setFormData({
+          ...formData,
+          endereco: logradouro,
+          bairro,
+          cidade: localidade,
+          uf,
+        });
+      } catch (error) {
+      }
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -76,6 +96,7 @@ const RegisterPage = () => {
             name="cep"
             value={formData.cep}
             onChange={handleChange}
+            onBlur={handleCepBlur}
             required
           />
         </div>
