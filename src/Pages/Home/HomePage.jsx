@@ -23,8 +23,11 @@ const HomePage = () => {
             <p>
               Este projeto refere-se a um teste técnico de uma aplicação web
               básica, onde boas práticas de desenvolvimento e conhecimento estão
-              sendo avaliados.
+              sendo avaliados. </p>
+              <p>
+              Cadastre-se abaixo para testá-lo.
             </p>
+
             <Button
               id="buttonHome"
               variant="contained"

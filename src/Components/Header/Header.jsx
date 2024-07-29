@@ -1,20 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import "./Header.css";
-import LogoHbi from "../../assets/somoshbi_logo.jfif";
+import LogoHbi from "../../Assets/somoshbi_logo.jfif";
 
 const Header = () => {
   return (
     <AppBar position="static" className="header">
       <Toolbar className="toolbar">
-        <img src={LogoHbi} alt="Logo" className="logo" />
-        <Typography
-          variant="h6"
-          className="header-title"
-        >
+        <Link to="/" className="logo-link">
+          <img src={LogoHbi} alt="Logo" className="logo" />
+        </Link>
+        <Typography variant="h6" className="header-title">
           Teste Técnico
         </Typography>
         <Avatar

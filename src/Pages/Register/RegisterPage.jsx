@@ -1,176 +1,247 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import "./RegisterPage.css";
+import Button from "@mui/material/Button";
+import Paper from "@mui/material/Paper";
+import TextField from "@mui/material/TextField";
+import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
+import { Container, Grid, Typography } from "@mui/material";
 import axios from "axios";
 
 const RegisterPage = () => {
-  const [formData, setFormData] = useState({
-    nome: "",
-    email: "",
-    dataNascimento: "",
-    celular: "",
-    cep: "",
-    endereco: "",
-    numeroCasa: "",
-    bairro: "",
-    cidade: "",
-    uf: "",
-  });
+  const { register, handleSubmit, formState: { errors }, setValue } = useForm();
   const [submittedData, setSubmittedData] = useState(null);
+  const [cepError, setCepError] = useState("");
 
-  const handleCepBlur = async () => {
-    if (formData.cep.length === 8) {
-      try {
-        const response = await axios.get(
-          `https://viacep.com.br/ws/${formData.cep}/json/`
-        );
-        const { logradouro, bairro, localidade, uf } = response.data;
-        setFormData({
-          ...formData,
-          endereco: logradouro,
-          bairro,
-          cidade: localidade,
-          uf,
-        });
-      } catch (error) {
-      }
+  const onSubmit = (data) => {
+    if (!cepError) {
+      setSubmittedData(data);
     }
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const handleCepBlur = async (e) => {
+    const cep = e.target.value;
+    if (cep.length === 8) {
+      try {
+        const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+        if (response.data.erro) {
+          setCepError("CEP inválido. Verifique e tente novamente.");
+        } else {
+          const { logradouro, bairro, localidade, uf } = response.data;
+          setValue("endereco", logradouro);
+          setValue("bairro", bairro);
+          setValue("cidade", localidade);
+          setValue("uf", uf);
+          setCepError("");
+        }
+      } catch (error) {
+        setCepError("CEP inválido. Verifique e tente novamente.");
+      }
+    } else {
+      setCepError("CEP deve ter 8 dígitos.");
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmittedData(formData);
+  const formatDate = (dateString) => {
+    const options = { day: "2-digit", month: "2-digit", year: "numeric" };
+    return new Date(dateString).toLocaleDateString("pt-BR", options);
   };
 
   return (
-    <div>
-      <h1>Página de Cadastro</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nome:</label>
-          <input
-            type="text"
-            name="nome"
-            value={formData.nome}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Data de Nascimento:</label>
-          <input
-            type="date"
-            name="dataNascimento"
-            value={formData.dataNascimento}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Celular:</label>
-          <input
-            type="tel"
-            name="celular"
-            value={formData.celular}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>CEP:</label>
-          <input
-            type="text"
-            name="cep"
-            value={formData.cep}
-            onChange={handleChange}
-            onBlur={handleCepBlur}
-            required
-          />
-        </div>
-        <div>
-          <label>Endereço:</label>
-          <input
-            type="text"
-            name="endereco"
-            value={formData.endereco}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Número da Casa:</label>
-          <input
-            type="text"
-            name="numeroCasa"
-            value={formData.numeroCasa}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Bairro:</label>
-          <input
-            type="text"
-            name="bairro"
-            value={formData.bairro}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Cidade:</label>
-          <input
-            type="text"
-            name="cidade"
-            value={formData.cidade}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>UF:</label>
-          <input
-            type="text"
-            name="uf"
-            value={formData.uf}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit">Cadastrar</button>
-      </form>
+    <Paper elevation={3} style={{ padding: "0.1px" }}>
+      <div className="home-page">
+        <Header />
+        <main className="main">
+          <Container className="container">
+            <Typography variant="h4" id="page-title" gutterBottom>
+              Página de Cadastro
+            </Typography>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Grid container spacing={2}>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    label="Nome"
+                    {...register("nome", { required: "Por favor, preencha este campo." })}
+                    fullWidth
+                    variant="outlined"
+                    error={!!errors.nome}
+                    helperText={errors.nome?.message}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    label="E-mail"
+                    type="email"
+                    {...register("email", { required: "Por favor, preencha este campo." })}
+                    fullWidth
+                    variant="outlined"
+                    error={!!errors.email}
+                    helperText={errors.email?.message}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    label="Data de Nascimento"
+                    type="date"
+                    {...register("dataNascimento", { required: "Por favor, preencha este campo." })}
+                    fullWidth
+                    variant="outlined"
+                    InputLabelProps={{ shrink: true }}
+                    error={!!errors.dataNascimento}
+                    helperText={errors.dataNascimento?.message}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    label="Celular"
+                    type="tel"
+                    {...register("celular", { required: "Por favor, preencha este campo." })}
+                    fullWidth
+                    variant="outlined"
+                    error={!!errors.celular}
+                    helperText={errors.celular?.message}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    label="CEP"
+                    {...register("cep", { required: "Por favor, preencha este campo." })}
+                    onBlur={handleCepBlur}
+                    fullWidth
+                    variant="outlined"
+                    error={!!errors.cep || !!cepError}
+                    helperText={errors.cep?.message || cepError}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    label="Endereço"
+                    {...register("endereco", { required: "Por favor, preencha este campo." })}
+                    fullWidth
+                    variant="outlined"
+                    error={!!errors.endereco}
+                    helperText={errors.endereco?.message}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    label="Número"
+                    {...register("numero", { required: "Por favor, preencha este campo." })}
+                    fullWidth
+                    variant="outlined"
+                    error={!!errors.numero}
+                    helperText={errors.numero?.message}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    label="Bairro"
+                    {...register("bairro", { required: "Por favor, preencha este campo." })}
+                    fullWidth
+                    variant="outlined"
+                    error={!!errors.bairro}
+                    helperText={errors.bairro?.message}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    label="Cidade"
+                    {...register("cidade", { required: "Por favor, preencha este campo." })}
+                    fullWidth
+                    variant="outlined"
+                    error={!!errors.cidade}
+                    helperText={errors.cidade?.message}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    label="UF"
+                    {...register("uf", { required: "Por favor, preencha este campo." })}
+                    fullWidth
+                    variant="outlined"
+                    error={!!errors.uf}
+                    helperText={errors.uf?.message}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Button
+                    id="buttonRegister"
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    disabled={!!cepError} 
+                  >
+                    Cadastrar
+                  </Button>
+                </Grid>
+              </Grid>
+            </form>
 
-      {submittedData && (
-        <div>
-          <h2>Resumo do Cadastro:</h2>
-          <ul>
-            <li>Nome: {submittedData.nome}</li>
-            <li>Email: {submittedData.email}</li>
-            <li>Data de Nascimento: {submittedData.dataNascimento}</li>
-            <li>Celular: {submittedData.celular}</li>
-            <li>CEP: {submittedData.cep}</li>
-            <li>Endereço: {submittedData.endereco}</li>
-            <li>Número da Casa: {submittedData.numeroCasa}</li>
-            <li>Bairro: {submittedData.bairro}</li>
-            <li>Cidade: {submittedData.cidade}</li>
-            <li>UF: {submittedData.uf}</li>
-          </ul>
-        </div>
-      )}
-    </div>
+            {submittedData && (
+              <Paper
+                elevation={2}
+                style={{
+                  padding: "20px",
+                  maxWidth: "400px",
+                  maxHeight: "400px",
+                  width: "100%",
+                  backgroundColor: "#f9f9f9",
+                  borderRadius: "8px",
+                  textAlign: "center",
+                  margin: "40px auto ",
+                }}
+              >
+                <Typography variant="h6" style={{ marginBottom: "10px" }}>
+                  Dados Cadastrados
+                </Typography>
+                <Typography variant="body1" className="data-item">
+                  <span className="label">Nome:</span>{" "}
+                  <span className="data">{submittedData.nome}</span>
+                </Typography>
+                <Typography variant="body1" className="data-item">
+                  <span className="label">Email:</span>{" "}
+                  <span className="data">{submittedData.email}</span>
+                </Typography>
+                <Typography variant="body1" className="data-item">
+                  <span className="label">Data de Nascimento:</span>{" "}
+                  <span className="data">{formatDate(submittedData.dataNascimento)}</span>
+                </Typography>
+                <Typography variant="body1" className="data-item">
+                  <span className="label">Celular:</span>{" "}
+                  <span className="data">{submittedData.celular}</span>
+                </Typography>
+                <Typography variant="body1" className="data-item">
+                  <span className="label">CEP:</span>{" "}
+                  <span className="data">{submittedData.cep}</span>
+                </Typography>
+                <Typography variant="body1" className="data-item">
+                  <span className="label">Endereço:</span>{" "}
+                  <span className="data">{submittedData.endereco}</span>
+                </Typography>
+                <Typography variant="body1" className="data-item">
+                  <span className="label">Número:</span>{" "}
+                  <span className="data">{submittedData.numero}</span>
+                </Typography>
+                <Typography variant="body1" className="data-item">
+                  <span className="label">Bairro:</span>{" "}
+                  <span className="data">{submittedData.bairro}</span>
+                </Typography>
+                <Typography variant="body1" className="data-item">
+                  <span className="label">Cidade:</span>{" "}
+                  <span className="data">{submittedData.cidade}</span>
+                </Typography>
+                <Typography variant="body1" className="data-item">
+                  <span className="label">UF:</span>{" "}
+                  <span className="data">{submittedData.uf}</span>
+                </Typography>
+              </Paper>
+            )}
+          </Container>
+        </main>
+        <Footer />
+      </div>
+    </Paper>
   );
 };
 
