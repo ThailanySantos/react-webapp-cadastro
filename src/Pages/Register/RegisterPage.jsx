@@ -10,7 +10,12 @@ import { Container, Grid, Typography } from "@mui/material";
 import axios from "axios";
 
 const RegisterPage = () => {
-  const { register, handleSubmit, formState: { errors }, setValue } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm();
   const [submittedData, setSubmittedData] = useState(null);
   const [cepError, setCepError] = useState("");
 
@@ -24,7 +29,9 @@ const RegisterPage = () => {
     const cep = e.target.value;
     if (cep.length === 8) {
       try {
-        const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+        const response = await axios.get(
+          `https://viacep.com.br/ws/${cep}/json/`
+        );
         if (response.data.erro) {
           setCepError("CEP inválido. Verifique e tente novamente.");
         } else {
@@ -62,7 +69,9 @@ const RegisterPage = () => {
                 <Grid item xs={12} md={6}>
                   <TextField
                     label="Nome"
-                    {...register("nome", { required: "Por favor, preencha este campo." })}
+                    {...register("nome", {
+                      required: "Por favor, preencha este campo.",
+                    })}
                     fullWidth
                     variant="outlined"
                     error={!!errors.nome}
@@ -73,7 +82,9 @@ const RegisterPage = () => {
                   <TextField
                     label="E-mail"
                     type="email"
-                    {...register("email", { required: "Por favor, preencha este campo." })}
+                    {...register("email", {
+                      required: "Por favor, preencha este campo.",
+                    })}
                     fullWidth
                     variant="outlined"
                     error={!!errors.email}
@@ -84,7 +95,9 @@ const RegisterPage = () => {
                   <TextField
                     label="Data de Nascimento"
                     type="date"
-                    {...register("dataNascimento", { required: "Por favor, preencha este campo." })}
+                    {...register("dataNascimento", {
+                      required: "Por favor, preencha este campo.",
+                    })}
                     fullWidth
                     variant="outlined"
                     InputLabelProps={{ shrink: true }}
@@ -96,7 +109,9 @@ const RegisterPage = () => {
                   <TextField
                     label="Celular"
                     type="tel"
-                    {...register("celular", { required: "Por favor, preencha este campo." })}
+                    {...register("celular", {
+                      required: "Por favor, preencha este campo.",
+                    })}
                     fullWidth
                     variant="outlined"
                     error={!!errors.celular}
@@ -106,7 +121,9 @@ const RegisterPage = () => {
                 <Grid item xs={12} md={6}>
                   <TextField
                     label="CEP"
-                    {...register("cep", { required: "Por favor, preencha este campo." })}
+                    {...register("cep", {
+                      required: "Por favor, preencha este campo.",
+                    })}
                     onBlur={handleCepBlur}
                     fullWidth
                     variant="outlined"
@@ -117,7 +134,9 @@ const RegisterPage = () => {
                 <Grid item xs={12} md={6}>
                   <TextField
                     label="Endereço"
-                    {...register("endereco", { required: "Por favor, preencha este campo." })}
+                    {...register("endereco", {
+                      required: "Por favor, preencha este campo.",
+                    })}
                     fullWidth
                     variant="outlined"
                     error={!!errors.endereco}
@@ -127,7 +146,9 @@ const RegisterPage = () => {
                 <Grid item xs={12} md={6}>
                   <TextField
                     label="Número"
-                    {...register("numero", { required: "Por favor, preencha este campo." })}
+                    {...register("numero", {
+                      required: "Por favor, preencha este campo.",
+                    })}
                     fullWidth
                     variant="outlined"
                     error={!!errors.numero}
@@ -137,7 +158,9 @@ const RegisterPage = () => {
                 <Grid item xs={12} md={6}>
                   <TextField
                     label="Bairro"
-                    {...register("bairro", { required: "Por favor, preencha este campo." })}
+                    {...register("bairro", {
+                      required: "Por favor, preencha este campo.",
+                    })}
                     fullWidth
                     variant="outlined"
                     error={!!errors.bairro}
@@ -147,7 +170,9 @@ const RegisterPage = () => {
                 <Grid item xs={12} md={6}>
                   <TextField
                     label="Cidade"
-                    {...register("cidade", { required: "Por favor, preencha este campo." })}
+                    {...register("cidade", {
+                      required: "Por favor, preencha este campo.",
+                    })}
                     fullWidth
                     variant="outlined"
                     error={!!errors.cidade}
@@ -157,7 +182,9 @@ const RegisterPage = () => {
                 <Grid item xs={12} md={6}>
                   <TextField
                     label="UF"
-                    {...register("uf", { required: "Por favor, preencha este campo." })}
+                    {...register("uf", {
+                      required: "Por favor, preencha este campo.",
+                    })}
                     fullWidth
                     variant="outlined"
                     error={!!errors.uf}
@@ -170,9 +197,9 @@ const RegisterPage = () => {
                     type="submit"
                     variant="contained"
                     color="primary"
-                    disabled={!!cepError} 
+                    disabled={!!cepError}
                   >
-                    Cadastrar
+                    Enviar
                   </Button>
                 </Grid>
               </Grid>
@@ -182,14 +209,14 @@ const RegisterPage = () => {
               <Paper
                 elevation={2}
                 style={{
-                  padding: "20px",
+                  padding: "2% 2%",
                   maxWidth: "400px",
                   maxHeight: "400px",
                   width: "100%",
                   backgroundColor: "#f9f9f9",
                   borderRadius: "8px",
                   textAlign: "center",
-                  margin: "40px auto ",
+                  margin: "5% auto 0",
                 }}
               >
                 <Typography variant="h6" style={{ marginBottom: "10px" }}>
@@ -205,7 +232,9 @@ const RegisterPage = () => {
                 </Typography>
                 <Typography variant="body1" className="data-item">
                   <span className="label">Data de Nascimento:</span>{" "}
-                  <span className="data">{formatDate(submittedData.dataNascimento)}</span>
+                  <span className="data">
+                    {formatDate(submittedData.dataNascimento)}
+                  </span>
                 </Typography>
                 <Typography variant="body1" className="data-item">
                   <span className="label">Celular:</span>{" "}
