@@ -77,6 +77,8 @@ O projeto consome a API pública de CEP para validar e preencher informações d
     - Erro: Mensagem de erro se o CEP não for encontrado ou estiver inválido
 
 ## Materiais de Apoio Utilizados
+
+### Documentações
 - [Documentação do React](https://reactjs.org/docs/getting-started.html)
 - [Material-UI Documentation](https://mui.com/getting-started/installation/)
 - [Axios Documentation](https://axios-http.com/docs/intro)
@@ -84,12 +86,8 @@ O projeto consome a API pública de CEP para validar e preencher informações d
 - [React Hook Form](https://react-hook-form.com/docs)
 - [API Documentation](https://react-hook-form.com/docs)
 - [(ViaCEP)](https://viacep.com.br/)
-- [... mensagem de erro para cep inválido... - Alura](https://cursos.alura.com.br/forum/topico-ele-retorna-a-mesma-mensagem-de-erro-para-cep-invalido-e-inexistente-289712)
-- [ChatGpt](https://chatgpt.com/)
 
 ### Vídeos do YouTube
-
-
 - [Como manipular dados de formulários no React JS](https://youtu.be/NtYO03Jq3EE?si=4HGUt23ERf0XLdqh)
 - [A MELHOR FORMA de Criar FORMULÁRIOS no REACT | React Hook Form](https://youtu.be/qH272VSWje4?si=cPpdq7k2LJ66YZFw)
 - [Como obter endereço via CEP API no React JS](https://youtu.be/155ywtYSpdY?si=1YFK_8XtKstDkLMU)
@@ -97,6 +95,10 @@ O projeto consome a API pública de CEP para validar e preencher informações d
 - [Axios Crash Course | HTTP Library](https://www.youtube.com/watch?v=6LyagkoRWYA)
 - [Learn React Router v6 In 45 Minutes](https://www.youtube.com/watch?v=Ul3y1LXxzdU)
 
+### Outros
+- [... mensagem de erro para cep inválido... - Alura](https://cursos.alura.com.br/forum/topico-ele-retorna-a-mesma-mensagem-de-erro-para-cep-invalido-e-inexistente-289712)
+- [ChatGpt](https://chatgpt.com/)
+- [Guia Completo React Router](https://www.freecodecamp.org/portuguese/news/um-guia-completo-de-react-router-para-iniciantes-incluindo-router-hooks/)
 
 ## Observações Finais
 Certifique-se de seguir as instruções cuidadosamente para garantir que o projeto funcione corretamente em seu ambiente local. Para qualquer dúvida ou problema, consulte a documentação das tecnologias utilizadas.
