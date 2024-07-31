@@ -20,13 +20,13 @@ Para executar o projeto localmente, siga os passos abaixo:
 1. **Clone o Repositório**
 
    ```bash
-   git clone https://github.com/ThailanySantos/TESTE-HBI.git
+   git clone https://github.com/ThailanySantos/react-webapp-cadastro.git
 
-2. Navegue até o Diretório do Projeto
+2. **Navegue até o Diretório do Projeto**
     ```bash
-    cd TESTE-HBI
+    cd react-webapp-cadastro
 
-3. Instale as Dependências
+3. **Instale as Dependências**
 - Certifique-se de ter o Node.js instalado. Utilize o comando abaixo para instalar as dependências do projeto:
     ```bash
     npm install
@@ -45,17 +45,16 @@ Para executar o projeto localmente, siga os passos abaixo:
     ```bash
     npm install axios
 
-4. Execute o Projeto
+4. **Execute o Projeto**
 Após a instalação das dependências, inicie o servidor de desenvolvimento:
     ```bash
     npm run dev
 O aplicativo será iniciado e estará disponível em http://localhost:5173.
 
 ## Estrutura do Projeto
-- **src/Assets/somoshbi_logo.jfif:** Arquivo contendo a logo da empresa HBI, usada no Header.
 - **src/Components/Footer/Footer.jsx:** Componente de rodapé com data atual.
 - **src/Components/Footer/Footer.css:** Estilos para o componente de rodapé.
-- **src/Components/Header/Header.jsx:** Componente de cabeçalho com logo e avatar.
+- **src/Components/Header/Header.jsx:** Componente de cabeçalho com título e avatar.
 - **src/Components/Header/Header.css:** Estilos para o componente de cabeçalho.
 - **src/Pages/Home/HomePage.jsx:** Página inicial com um botão para navegação para a página de registro.
 - **src/Pages/Home/HomePage.css:** Estilos para a página inicial.
