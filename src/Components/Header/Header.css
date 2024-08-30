@@ -1,33 +1,32 @@
 .header {
-    background: linear-gradient(45deg, #113981, #1e9eae);
-    color: #fff;
-  }
-  
-  .toolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0 10px; 
-  }
-  
-  .logo {
-    max-height: 30px;
-    mix-blend-mode: lighten;
-    width: auto;
-    height: auto;
-  }
-  
-  .header-title {
-    flex: 1;
-    text-align: center;
-    font-size: 25px;
-    margin: 0;
-  }
-  
-  .avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 0;
-  }
-  
+  background: linear-gradient(45deg, #383f90, rgb(165, 184, 224));
+  color: #fff;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.logo {
+  max-height: 30px;
+  mix-blend-mode: lighten;
+  width: auto;
+  height: auto;
+}
+
+.header-title {
+  flex: 1;
+  text-align: center;
+  font-size: 25px;
+  margin: 0;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 0;
+}

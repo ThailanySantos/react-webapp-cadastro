@@ -21,12 +21,9 @@ const HomePage = () => {
           <div className="container">
             <h2>Bem-vindo ao Projeto</h2>
             <p>
-              Este projeto refere-se a um teste técnico de uma aplicação web
-              básica, onde boas práticas de desenvolvimento e conhecimento estão
-              sendo avaliados. </p>
-              <p>
-              Cadastre-se abaixo para testá-lo.
+              Este projeto pessoal refere-se a uma página web simples de cadastro de usuários, onde são solicitados nome, e-mail, nascimento, celular e CEP.
             </p>
+            <p>Cadastre-se abaixo para testá-lo.</p>
 
             <Button
               id="buttonHome"
