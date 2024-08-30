@@ -2,7 +2,7 @@
 
 ## Descrição e Objetivo do Projeto
 
-Este projeto é uma aplicação prática para desenvolvedores front-end júnior, projetada para permitir o cadastro de usuários com os seguintes campos: nome, e-mail, data de nascimento, celular, cep, endereço, número, bairro, cidade e UF. Após a inserção do CEP, os campos relacionados ao endereço são preenchidos automaticamente usando uma API pública. A aplicação é desenvolvida em React.js com design responsivo e tem como objetivo demonstrar boas práticas de desenvolvimento. O sistema inclui duas páginas principais: a página inicial e a página de registro, e permite aos usuários se registrarem, validarem informações através da API de CEP e visualizar os dados cadastrados.
+Este projeto é uma aplicação construida por uma desenvolvedora front-end júnior, projetada para permitir o cadastro de usuários com os seguintes campos: nome, e-mail, data de nascimento, celular, cep, endereço, número, bairro, cidade e UF. Após a inserção do CEP, os campos relacionados ao endereço são preenchidos automaticamente usando uma API pública. A aplicação é desenvolvida em React.js com design responsivo e tem como objetivo demonstrar boas práticas de desenvolvimento. O sistema inclui duas páginas principais: a página inicial e a página de registro, e permite aos usuários se registrarem, validarem informações através da API de CEP e visualizar os dados cadastrados.
 
 ## Tecnologias Utilizadas
 
