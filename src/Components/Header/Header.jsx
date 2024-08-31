@@ -15,11 +15,11 @@ const Header = () => {
 
   return (
     <AppBar position="static" className="header">
-      <Toolbar className="toolbar">
+      <Toolbar className="toolbar" style={{ marginLeft: "10px" }}>
         {naHomePage ? (
           <FontAwesomeIcon
             icon={faChevronLeft}
-            style={{ color: "#6169a0", cursor: "default" }}
+            style={{ color: "#113981", cursor: "default" }}
           />
         ) : (
           <Link to="/" className="logo-link">
@@ -30,9 +30,9 @@ const Header = () => {
           </Link>
         )}
         <Typography variant="h6" className="header-title">
-          React WebApp Cadastro
+           WebApp Cadastro
         </Typography>
-        <Avatar alt="User Avatar" src={thai} className="avatar" />
+        <Avatar alt="User Avatar" src={thai} className="avatar" style={{ marginRight: "10px" }}/>
       </Toolbar>
     </AppBar>
   );
