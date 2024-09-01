@@ -76,6 +76,7 @@ const RegisterPage = () => {
                     variant="outlined"
                     error={!!errors.nome}
                     helperText={errors.nome?.message}
+                    InputLabelProps={{ shrink: true }}
                   />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -89,6 +90,7 @@ const RegisterPage = () => {
                     variant="outlined"
                     error={!!errors.email}
                     helperText={errors.email?.message}
+                    InputLabelProps={{ shrink: true }}
                   />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -116,6 +118,7 @@ const RegisterPage = () => {
                     variant="outlined"
                     error={!!errors.celular}
                     helperText={errors.celular?.message}
+                    InputLabelProps={{ shrink: true }}
                   />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -129,6 +132,7 @@ const RegisterPage = () => {
                     variant="outlined"
                     error={!!errors.cep || !!cepError}
                     helperText={errors.cep?.message || cepError}
+                    InputLabelProps={{ shrink: true }}
                   />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -141,6 +145,7 @@ const RegisterPage = () => {
                     variant="outlined"
                     error={!!errors.endereco}
                     helperText={errors.endereco?.message}
+                    InputLabelProps={{ shrink: true }}
                   />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -153,6 +158,7 @@ const RegisterPage = () => {
                     variant="outlined"
                     error={!!errors.numero}
                     helperText={errors.numero?.message}
+                    InputLabelProps={{ shrink: true }}
                   />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -165,6 +171,7 @@ const RegisterPage = () => {
                     variant="outlined"
                     error={!!errors.bairro}
                     helperText={errors.bairro?.message}
+                    InputLabelProps={{ shrink: true }}
                   />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -177,6 +184,7 @@ const RegisterPage = () => {
                     variant="outlined"
                     error={!!errors.cidade}
                     helperText={errors.cidade?.message}
+                    InputLabelProps={{ shrink: true }}
                   />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -189,6 +197,7 @@ const RegisterPage = () => {
                     variant="outlined"
                     error={!!errors.uf}
                     helperText={errors.uf?.message}
+                    InputLabelProps={{ shrink: true }}
                   />
                 </Grid>
                 <Grid item xs={12}>
