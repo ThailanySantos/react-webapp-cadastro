@@ -1,4 +1,4 @@
-# React Webapp Cadastro
+# Webapp Cadastro
 
 ## Descrição e Objetivo do Projeto
 
@@ -20,11 +20,11 @@ Para executar o projeto localmente, siga os passos abaixo:
 1. **Clone o Repositório**
 
    ```bash
-   git clone https://github.com/ThailanySantos/react-webapp-cadastro.git
+   git clone https://github.com/ThailanySantos/webapp-cadastro.git
 
 2. **Navegue até o Diretório do Projeto**
     ```bash
-    cd react-webapp-cadastro
+    cd webapp-cadastro
 
 3. **Instale as Dependências**
 - Certifique-se de ter o Node.js instalado. Utilize o comando abaixo para instalar as dependências do projeto:
